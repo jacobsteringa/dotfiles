@@ -14,30 +14,31 @@ set autoindent
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set noexpandtab
+set expandtab
 
 filetype indent on  " load filetype-specific indent files
 filetype plugin on  " load filetype-specific plugins
 
-" ui config
-set relativenumber  " show line numbers
-set numberwidth=4   " default wdth of number column
+" ui
+set relativenumber  " show relative line numbers instead of absolute
+set numberwidth=4   " default width of number column
 set cursorline      " highlight current line
-set ruler
+set ruler           " always show cursor
 set showmatch       " highlight matching brackets, parenthesis, etc.
 set wildmenu        " autocomplete command menu
-set showcmd         " show last command in bottom bar
+set showcmd         " show last command in status bar
 set lazyredraw      " only redraw when needed
 set laststatus=2    " always show status line
+set visualbell
 set scrolloff=4     " start scrolling 4 lines before horizontal border
 
 " searching
-set ignorecase
-set smartcase
+set ignorecase      " search case insensitive
+set smartcase       " search case sensitive if search contains upper-case chars
 set incsearch       " search as you type
 set hlsearch        " highlight matches
 
-" turn off highligted matches
+" clear highligted matches
 nnoremap <leader>c :nohlsearch<CR>
 
 " misc
