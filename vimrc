@@ -20,6 +20,7 @@ filetype indent on  " load filetype-specific indent files
 filetype plugin on  " load filetype-specific plugins
 
 " ui
+set number          " show current line number
 set relativenumber  " show relative line numbers instead of absolute
 set numberwidth=4   " default width of number column
 set cursorline      " highlight current line
