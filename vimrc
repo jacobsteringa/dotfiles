@@ -61,6 +61,8 @@ set wildignore+=*/app/cache/*,*/app/logs/*,*/bootstrap.php.cache
 set wildignore+=*/.nbproject/*,*/.idea/*
 " random folder shit
 set wildignore+=*/log/*,*/tmp/*
+" misc symfony shit
+set wildignore+=*/web/js/*,*/web/css/*,*/web/uploads/*,*/web/ob_uploads/*,*/web/media/*
 
 " quickly move through buffers
 map gB :bprev<CR>
