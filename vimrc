@@ -7,7 +7,8 @@ let mapleader =  "\<space>"
 " colors
 syntax enable
 set background=dark
-colorscheme solarized
+" colorscheme solarized
+colorscheme apprentice
 
 " spaces & tabs
 set autoindent
@@ -46,6 +47,10 @@ nnoremap <leader>c :nohlsearch<CR>
 set ttyfast
 set backspace=indent,eol,start
 set updatetime=250
+set autoread                   " reload buffer if file changed outside of vim
+set autowrite                  " write buffer when navigating away
+
+set tags+=tags,tags.vendor
 
 " ignore shit
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.min.js,*.min.css
@@ -76,8 +81,15 @@ nmap <leader>x :bw<CR>
 
 nmap <leader>t :NERDTreeToggle<CR>
 
+function! PhpInsertAndSortUse()
+    call PhpInsertUse()
+    call PhpSortUse()
+endfunction
+
+autocmd FileType php noremap <leader>u :call PhpInsertAndSortUse()<CR>
+
 " airline coniguration
-let g:airline_theme = 'solarized'
+let g:airline_theme = 'apprentice'
 
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
@@ -88,7 +100,6 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 
 let g:ctrlp_switch_buffer = 'Et'
 let g:ctrlp_working_path_mode = 'ra'
-" let g:ctrlp_custom_ignore = '\vapp/cache/|web/(js/|css/|components/|uploads/|ob_uploads/|media/)|node_modules/|vendor/|nbproject/|\.(swp|orig|min.js|min.css)$'
 
 " always show gitgutter sign column
 let g:gitgutter_sign_column_always = 1

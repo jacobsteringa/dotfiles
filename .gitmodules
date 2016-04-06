@@ -37,3 +37,9 @@
 [submodule "vim/bundle/vdebug"]
 	path = vim/bundle/vdebug
 	url = https://github.com/joonty/vdebug.git
+[submodule "vim/bundle/Apprentice"]
+	path = vim/bundle/Apprentice
+	url = https://github.com/romainl/Apprentice.git
+[submodule "vim/bundle/vim-php-namespace"]
+	path = vim/bundle/vim-php-namespace
+	url = https://github.com/arnaud-lb/vim-php-namespace.git
