@@ -43,3 +43,6 @@
 [submodule "vim/bundle/vim-php-namespace"]
 	path = vim/bundle/vim-php-namespace
 	url = https://github.com/arnaud-lb/vim-php-namespace.git
+[submodule "vim/bundle/tagbar"]
+	path = vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git

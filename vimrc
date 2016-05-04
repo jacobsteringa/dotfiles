@@ -50,8 +50,6 @@ set updatetime=250
 set autoread                   " reload buffer if file changed outside of vim
 set autowrite                  " write buffer when navigating away
 
-set tags+=tags,tags.vendor
-
 " ignore shit
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.min.js,*.min.css
 " version control shit
@@ -59,7 +57,7 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 " javascript shit
 set wildignore+=*/node_modules/*,*/bower_components/*
 " php shit
-set wildignore+=*/vendor/*
+set wildignore+=*/vendor/**/Tests/*,*/vendor/**/tests/*
 " symfony shit
 set wildignore+=*/app/cache/*,*/app/logs/*,*/bootstrap.php.cache
 " random IDE shit
@@ -80,6 +78,7 @@ nmap <leader>w :w<CR>
 nmap <leader>x :bw<CR>
 
 nmap <leader>t :NERDTreeToggle<CR>
+nmap <leader>b :TagbarToggle<CR>
 
 function! PhpInsertAndSortUse()
     call PhpInsertUse()
@@ -93,6 +92,8 @@ let g:airline_theme = 'apprentice'
 
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
+
+let g:airline#extensions#whitespace#enabled = 0
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
@@ -110,11 +111,18 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+let g:syntastic_ignore_files = ['/vendor/', '/Tests/']
+
 " syntastic checker options
 let g:syntastic_js_checkers = ['jshint', 'jscs']
 let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 
 let g:syntastic_php_phpmd_args = 'text unusedcode'
+
+" tagbar configuration
+let g:tagbar_autofocus = 1
+let g:tagbar_autoclose = 1
+let g:tagbar_sort = 0
 
 " EditorConfig
 " Play nice with fugitive
