@@ -117,6 +117,10 @@ let g:syntastic_ignore_files = ['/vendor/', '/Tests/']
 let g:syntastic_js_checkers = ['jshint', 'jscs']
 let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 
+if findfile('phpcs', 'vendor/bin') != ''
+    let g:syntastic_php_phpcs_exec = './vendor/bin/phpcs'
+endif
+
 let g:syntastic_php_phpmd_args = 'text unusedcode'
 
 " tagbar configuration
