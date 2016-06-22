@@ -25,8 +25,7 @@ alias v='f -e vim'
 alias php='php -dzend_extension=xdebug.so'
 alias phpunit='php $(which phpunit)'
 
-# load database aliases if any
-if [ -f ~/.database_aliases ]; then
-	. ~/.database_aliases
+# load machine specific aliases if any
+if [ -f ~/.extra_aliases ]; then
+	. ~/.extra_aliases
 fi
-
