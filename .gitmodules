@@ -47,5 +47,5 @@
 	path = vim/bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
 [submodule "vim/bundle/typescript-vim.git"]
-	path = vim/bundle/typescript-vim.git
+	path = vim/bundle/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
