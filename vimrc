@@ -7,8 +7,7 @@ let mapleader =  "\<space>"
 " colors
 syntax enable
 set background=dark
-" colorscheme solarized
-colorscheme apprentice
+colorscheme base16-monokai
 
 " spaces & tabs
 set autoindent
@@ -88,7 +87,7 @@ endfunction
 autocmd FileType php noremap <leader>u :call PhpInsertAndSortUse()<CR>
 
 " airline coniguration
-let g:airline_theme = 'apprentice'
+let g:airline_theme = 'base16_monokai'
 
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
