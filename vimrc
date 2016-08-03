@@ -71,7 +71,9 @@ map gB :bprev<CR>
 map gb :bnext<CR>
 
 " quicksave
-nmap <leader>w :w<CR>
+noremap <silent> <C-S>  :update<CR>
+vnoremap <silent> <C-S> <C-C>:update<CR>
+inoremap <silent> <C-S> <C-O>:update<CR>
 
 " quickly close buffer
 nmap <leader>x :bw<CR>
