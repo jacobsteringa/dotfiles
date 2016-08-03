@@ -86,6 +86,9 @@ endfunction
 
 autocmd FileType php noremap <leader>u :call PhpInsertAndSortUse()<CR>
 
+" save file when switching to another pane
+let g:tmux_navigator_save_on_switch = 1
+
 " airline coniguration
 let g:airline_theme = 'base16_eighties'
 
