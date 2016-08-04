@@ -103,8 +103,12 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_lazy_update = 350
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+let g:ctrlp_max_files = 0
 let g:ctrlp_switch_buffer = 'Et'
-let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_working_path_mode = 'ar'
 
 " always show gitgutter sign column
 let g:gitgutter_sign_column_always = 1
