@@ -139,3 +139,10 @@ let g:tagbar_sort = 0
 " EditorConfig
 " Play nice with fugitive
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
+" utilsnips configuration
+let g:UltiSnipsSnippetsDir = '~/.vim/ultisnips'
+let g:ultiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<c-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
+let g:UltiSnipsEditSplit = 'vertical'

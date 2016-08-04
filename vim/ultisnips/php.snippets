@@ -1,0 +1,57 @@
+global !p
+def docblock_params(arguments):
+	if len(arguments) == 0:
+		return '';
+	
+	lines = arguments.split(', ')
+	lines = '\n'.join(map(lambda x: '\t * @param %s' % x, lines))
+	return '\n\t *\n' + lines
+endglobal
+
+snippet constr
+/**
+ * $1 constructor`!p snip.rv = docblock_params(t[2])`
+ */
+public function __construct($2)
+{
+	$0
+}
+
+endsnippet
+
+snippet gett
+/**
+ * @return ${2:string}
+ */
+public function get${1/\w+\s*/\u$0/}()
+{
+	return $this->$1;
+}
+
+endsnippet
+
+snippet sett
+/**
+ * @param ${2:string} $$1
+ */
+public function set${1/\w+\s*/\u$0/}($$1)
+{
+	$this->$1 = $$1;
+}
+
+endsnippet
+
+snippet fsett
+/**
+ * @param ${2:string} $$1
+ *
+ * @return ${3:`!p snip.rv=snip.basename`}
+ */
+public function set${1/\w+\s*/\u$0/}($$1)
+{
+	$this->$1 = $$1;
+
+	return $this;
+}
+
+endsnippet
