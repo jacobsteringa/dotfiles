@@ -70,9 +70,7 @@ set expandtab
 " }}}
 
 " UI {{{
-set number
-set relativenumber
-set numberwidth=4
+set number relativenumber numberwidth=4
 set cursorline
 set ruler
 set showcmd
@@ -94,16 +92,24 @@ nnoremap <leader>c :nohlsearch<cr>
 
 " }}}
 
-" Leader mappings {{{
-nnoremap <leader>s :update<cr>
-map <leader>p :bprev<cr>
-map <leader>n :bnext<cr>
-map <leader>f :b#<cr>
-nmap <leader>x :bdel<cr>
-nmap <leader>v :source $MYVIMRC<cr>
-nmap <leader>b :NERDTreeToggle<cr>
-nmap <leader>r :TagbarOpenAutoClose<cr>
-nmap <leader>t :TagbarToggle<cr>
+" Mappings {{{
+nnoremap <leader>w :update<cr>
+nnoremap <leader>x :bdel<cr>
+
+noremap H :bprev<cr>
+noremap L :bnext<cr>
+noremap <leader>a  :b#<cr>
+
+nnoremap <leader>ve :vsplit $MYVIMRC<cr>
+nnoremap <leader>vs :source $MYVIMRC<cr>
+
+nnoremap <leader>b :NERDTreeToggle<cr>
+
+nnoremap <leader>r :TagbarOpenAutoClose<cr>
+nnoremap <leader>t :TagbarToggle<cr>
+
+nnoremap <leader>gs :GitGutterStageHunk<cr>
+nnoremap <leader>gu :GitGutterUndoHunk<cr>
 
 " }}}
 
