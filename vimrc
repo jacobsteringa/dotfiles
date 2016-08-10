@@ -57,11 +57,7 @@ set updatetime=350
 " }}}
 
 " Formatting {{{
-set fo+=t
-set fo+=c
-set fo+=q
-set fo+=r
-set fo+=o
+set fo+=tcqro
 
 set comments="s1:/**,mb:*,ex:*/,b://"
 
@@ -116,9 +112,6 @@ noremap H :bprev<cr>
 noremap L :bnext<cr>
 noremap <leader>a  :b#<cr>
 
-nnoremap <leader>ve :vsplit $MYVIMRC<cr>
-nnoremap <leader>vs :source $MYVIMRC<cr>
-
 nnoremap <leader>b :NERDTreeToggle<cr>
 
 nnoremap <leader>r :TagbarOpenAutoClose<cr>
@@ -131,7 +124,13 @@ nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>st :SyntasticToggleMode<cr>
 nnoremap <leader>se :Errors<cr>
 
-autocmd FileType php nnoremap <buffer> <leader>d :call pdv#DocumentCurrentLine()<cr>
+nnoremap <leader>ve :vsplit $MYVIMRC<cr>
+nnoremap <leader>vs :source $MYVIMRC<cr>
+
+augroup filetype_php
+    autocmd!
+    autocmd FileType php nnoremap <buffer> <leader>d :call pdv#DocumentCurrentLine()<cr>
+augroup END
 
 " }}}
 
@@ -157,6 +156,12 @@ let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 if findfile('phpcs', 'vendor/bin') != ''
     let g:syntastic_php_phpcs_exec = './vendor/bin/phpcs'
 endif
+
+" }}}
+
+" Tagbar {{{
+let g:tagbar_sort = 0
+let g:tagbar_show_linenumbers = -1
 
 " }}}
 
