@@ -18,15 +18,21 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'ervandew/supertab'
-Plugin 'garbas/vim-snipmate'
 Plugin 'godlygeek/tabular'
 Plugin 'lumiliet/vim-twig'
 Plugin 'majutsushi/tagbar'
-Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'tomtom/tlib_vim'
 Plugin 'vim-php/tagbar-phpctags.vim'
+
+" SnipMate
+Plugin 'garbas/vim-snipmate'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+
+" PHP Documentor for Vim
+Plugin 'tobyS/pdv'
+Plugin 'tobyS/vmustache'
 
 call vundle#end()
 filetype plugin on
@@ -159,5 +165,8 @@ let g:tmux_navigator_save_on_switch = 1
 let g:gitgutter_map_keys = 0
 let g:gitgutter_sign_column_always = 1
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+let g:snipMate = {}
+let g:snipMate.snippet_version = 1
+let g:pdv_template_dir = $HOME .'/.vim/pdv_templates'
 
 " }}}

@@ -1,5 +1,104 @@
-snippet gett
-	public function get${1/.*/\u\0/g}()
+snippet class
+	namespace ${1:namespace};
+
+	/**
+	 * `Filename()`
+	 */
+	class `Filename()`${2: implements ${3:interface}}
 	{
-		return $this->${1:property};
+		$0
+	}
+
+snippet interface
+	namespace ${1:namespace};
+
+	/**
+	 * ${2:interface description}
+	 */
+	interface `Filename()`
+	{
+		$0
+	}
+
+snippet prop
+	/**
+	 * @var ${2:string}
+	 */
+	${3:private \$${1:property}
+
+snippet pubfi
+	public function $1($2);
+
+snippet pubf
+	public function $1($2)
+	{
+		$0
+	}
+
+snippet prof
+	protected function $1($2)
+	{
+		$0
+	}
+
+snippet prif
+	private function $1($2)
+	{
+		$0
+	}
+
+snippet gett
+	/**
+	 * @return ${2:string}
+	 */
+	${3:public} function get${1/.*/\u\0}()
+	{
+		return \$this->${1:property};
+	}
+
+snippet sett
+	/**
+	 * @param ${2:string} $$1
+	 */
+	public function set${1/.*/\u\0}(\$$1)
+	{
+		\$this->${1:property} = \$$1;
+	}
+
+snippet settf
+	/**
+	 * @param ${2:string} \$$1
+	 *
+	 * @return `Filename()`
+	 */
+	public function set${1/.*/\u\0}(\$$1)
+	{
+		\$this->${1:property} = \$$1;
+
+		return \$this;
+	}
+
+snippet indoc
+	/**
+	 * {@inheritDoc}
+	 */
+
+snippet testcase
+	namespace ${1:namespace};
+
+	class `Filename()` extends \PHPUnit_Framework_TestCase
+	{
+		$0
+	}
+
+snippet setup
+	protected function setUp()
+	{
+		$0
+	}
+
+snippet test
+	public function test$1()
+	{
+		$0
 	}
