@@ -13,6 +13,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'editorconfig/editorconfig-vim'
@@ -80,7 +81,8 @@ set scrolloff=8
 set visualbell
 set wildmenu
 
-set statusline=%f
+set statusline=%3*%{fugitive#statusline()}%*
+set statusline+=\ %f
 set statusline+=\ %1*
 set statusline+=%h%w%m%r
 set statusline+=%*%=%2*
@@ -116,8 +118,14 @@ nnoremap <leader>b :NERDTreeToggle<cr>
 nnoremap <leader>r :TagbarOpenAutoClose<cr>
 nnoremap <leader>t :TagbarToggle<cr>
 
-nnoremap <leader>gs :GitGutterStageHunk<cr>
-nnoremap <leader>gu :GitGutterUndoHunk<cr>
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gc :Gcommit<cr>
+
+nnoremap <leader>st :SyntasticToggleMode<cr>
+nnoremap <leader>se :Errors<cr>
+
+autocmd FileType php nnoremap <buffer> <leader>d :call pdv#DocumentCurrentLine()<cr>
 
 " }}}
 
@@ -148,6 +156,7 @@ endif
 
 " Other plugins {{{
 let g:tmux_navigator_save_on_switch = 1
+let g:gitgutter_map_keys = 0
 let g:gitgutter_sign_column_always = 1
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 

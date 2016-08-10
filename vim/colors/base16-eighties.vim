@@ -266,6 +266,7 @@ call <sid>hi("SpellRare",    "", s:gui00, "", s:cterm00, "undercurl", s:gui0E)
 " User defined highlighting
 call <sid>hi("User1",        "", s:gui00, s:cterm02, s:cterm09, "", "")
 call <sid>hi("User2",        "", s:gui00, s:cterm02, s:cterm08, "", "")
+call <sid>hi("User3",        "", s:gui00, s:cterm02, s:cterm0B, "none", "")
 
 " Remove functions
 delf <sid>hi
