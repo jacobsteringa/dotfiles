@@ -80,6 +80,14 @@ set scrolloff=8
 set visualbell
 set wildmenu
 
+set statusline=%f
+set statusline+=\ %1*
+set statusline+=%h%w%m%r
+set statusline+=%*%=%2*
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+set statusline+=\ %y\ %4p%%\ %4l:%3v
+
 " }}}
 
 " Searching {{{
