@@ -157,6 +157,8 @@ if findfile('phpcs', 'vendor/bin') != ''
     let g:syntastic_php_phpcs_exec = './vendor/bin/phpcs'
 endif
 
+let g:syntastic_php_phpmd_args = 'text unusedcode'
+
 " }}}
 
 " Tagbar {{{
