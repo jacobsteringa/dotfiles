@@ -115,6 +115,8 @@ noremap <leader>a  :b#<cr>
 
 nnoremap <leader>b :NERDTreeToggle<cr>
 
+nnoremap <c-b> :CtrlPBuffer<cr>
+
 nnoremap <leader>r :TagbarOpenAutoClose<cr>
 nnoremap <leader>t :TagbarToggle<cr>
 
