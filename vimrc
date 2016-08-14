@@ -109,8 +109,8 @@ nnoremap <leader>c :nohlsearch<cr>
 nnoremap <leader>w :update<cr>
 nnoremap <leader>x :bdel<cr>
 
-noremap H :bprev<cr>
-noremap L :bnext<cr>
+noremap [b :bprev<cr>
+noremap ]b :bnext<cr>
 noremap <leader>a  :b#<cr>
 
 nnoremap <leader>b :NERDTreeToggle<cr>
@@ -138,6 +138,7 @@ augroup END
 " }}}
 
 " CtrlP {{{
+let g:ctrlp_by_filename = 1
 let g:ctrlp_lazy_update = 350
 let g:ctrlp_max_files = 0
 let g:ctrlp_switch_buffer = 'Et'
