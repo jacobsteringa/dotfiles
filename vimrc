@@ -53,6 +53,7 @@ set autowrite
 set backspace=2
 set noswapfile
 set ttyfast
+set lazyredraw
 set updatetime=350
 
 " }}}
