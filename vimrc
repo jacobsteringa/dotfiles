@@ -109,6 +109,8 @@ nnoremap <leader>c :nohlsearch<cr>
 " Mappings {{{
 nnoremap <leader>w :update<cr>
 nnoremap <leader>x :bdel<cr>
+nnoremap <leader>q ZZ
+nnoremap <leader>Q :quit!<cr>
 
 noremap [b :bprev<cr>
 noremap ]b :bnext<cr>
