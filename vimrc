@@ -169,6 +169,7 @@ let g:syntastic_php_phpmd_args = 'text unusedcode'
 " Tagbar {{{
 let g:tagbar_sort = 0
 let g:tagbar_show_linenumbers = -1
+let g:tagbar_phpctags_bin = '/usr/local/bin/phpctags'
 
 " }}}
 
