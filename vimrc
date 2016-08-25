@@ -25,6 +25,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'vim-php/tagbar-phpctags.vim'
+Plugin 'joonty/vdebug'
 
 " SnipMate
 Plugin 'garbas/vim-snipmate'
@@ -172,6 +173,13 @@ let g:syntastic_php_phpmd_args = 'text unusedcode'
 let g:tagbar_sort = 0
 let g:tagbar_show_linenumbers = -1
 let g:tagbar_phpctags_bin = '/usr/local/bin/phpctags'
+
+" }}}
+
+" Vdebug {{{
+let g:vdebug_options = {
+\    "port" : 9999
+\}
 
 " }}}
 
