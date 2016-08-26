@@ -9,8 +9,9 @@ URxvt.scrollStyle:          plain
 URxvt.scrollBar:            false
 URxvt.internalBorder:       3
 
-URxvt.font:                 -*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
-URxvt.boldFont:             -*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
+URxvt.font:                 -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*
+URxvt.boldFont:             -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*
+URxvt.italicFont:           -*-terminus-medium-o-*-*-12-*-*-*-*-*-*-*
 URxvt.lineSpace:            0
 
 URxvt.cursorBlink:          false
