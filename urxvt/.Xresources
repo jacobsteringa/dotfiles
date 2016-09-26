@@ -1,5 +1,11 @@
-URxvt.loginShell:           true
+Xft.dpi:                    96
+Xft.antialias:              1
+Xft.rgba:                   rgb
+Xft.hinting:                0
+Xft.hintstyle:              hintnone
+Xft.lcdfilter:              lcddefault
 
+URxvt.loginShell:           true
 URxvt.depth:                32
 URxvt.geometry:             80x24
 URxvt.transparant:          false
@@ -45,12 +51,13 @@ URxvt.url-launcher:         chrome
 #define base0E #cc99cc
 #define base0F #d27b53
 
+URxvt*foreground:  base05
+URxvt*background:  base00
+URxvt.cursorColor: base05
+
 *.foreground:   base05
 *.background:   base00
 *.cursorColor:  base05
-
-URxvt*foreground: base05
-URxvt*background: base00
 
 *.color0:       base00
 *.color1:       base08
