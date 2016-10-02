@@ -1,6 +1,11 @@
 # vim:ft=sh
 
-alias ls='ls -F --color=auto'
+if [ "$(uname)" = "Darwin" ]; then
+    alias ls='ls -FG'
+else
+    alias ls='ls -F --color=auto'
+fi
+
 alias ll='ls -l'
 alias la='ls -la'
 
@@ -12,7 +17,7 @@ alias ..3='cd ../../../'
 alias ..4='cd ../../../../'
 alias ..5='cd ../../../../../'
 
-alias tmux='TERM=xterm-256color /usr/bin/tmux'
+alias tmux='TERM=xterm-256color $(which tmux)'
 
 # fasd aliases
 alias v='f -e vim'
