@@ -36,6 +36,9 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'tobyS/pdv'
 Plugin 'tobyS/vmustache'
 
+" Frontend development
+Plugin 'leafgarland/typescript-vim'
+
 call vundle#end()
 filetype plugin on
 filetype indent on
