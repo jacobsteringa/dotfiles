@@ -64,7 +64,7 @@ set scrolloff=8
 set visualbell
 
 set list
-set listchars=tab:>-,trail:·,eol:¬
+set listchars=tab:\|\ ,trail:-,eol:¬
 
 " }}}
 
