@@ -104,7 +104,7 @@ set visualbell
 set wildmenu
 
 set list
-set listchars=tab:\|\ ,trail:-,eol:¬
+set listchars=tab:\ \ ,trail:-,eol:¬
 
 " }}}
 
@@ -169,7 +169,7 @@ set statusline+=%2*%{GitInfo()}                         " current branch, if any
 set statusline+=%1*\ %<%f                               " filename
 set statusline+=\ %h%w%m%r                              " some flags
 set statusline+=%3*%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}            " syntastic errors
+set statusline+=%3*%{SyntasticStatuslineFlag()}         " syntastic errors
 set statusline+=%1*%=                                   " reset color to normal
 set statusline+=\ %y\ %{(&fenc!=''?&fenc:&enc)}[%{&ff}] " filetype, encoding and file format
 set statusline+=\ %0*%4p%%\ %10(%l:%L%)%4c              " cursor position
