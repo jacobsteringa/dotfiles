@@ -135,6 +135,13 @@ let g:modeMap = {
     \ }
 
 function! ChangeStatuslineColor()
+    if (buffer_exists('ControlP') && bufloaded('ControlP'))
+        exe 'hi! StatusLine ctermfg=12 ctermbg=11'
+        exe 'hi! WildMenu ctermfg=01 ctermbg=00'
+
+        return ''
+    endif
+
     if (mode() =~# '\v(n|no)')
         exe 'hi! StatusLine ctermfg=00 ctermbg=02'
         exe 'hi! WildMenu ctermfg=02 ctermbg=00'
@@ -229,6 +236,10 @@ let g:ctrlp_max_files = 0
 let g:ctrlp_switch_buffer = 'Et'
 let g:ctrlp_working_path_mode = 'ar'
 let g:ctrlp_user_command = 'ag %s -l --nocolor --skip-vcs-ignores --hidden -g ""'
+
+hi! CtrlPMatch ctermfg=10 ctermbg=03
+hi! CtrlPMode1 ctermfg=02 ctermbg=10
+hi! CtrlPMode2 ctermfg=00 ctermbg=02
 
 " }}}
 
