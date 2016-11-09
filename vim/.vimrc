@@ -28,15 +28,6 @@ Plugin 'scrooloose/syntastic'
 Plugin 'vim-php/tagbar-phpctags.vim'
 Plugin 'joonty/vdebug'
 
-" SnipMate
-Plugin 'garbas/vim-snipmate'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-
-" PHP Documentor for Vim
-Plugin 'tobyS/pdv'
-Plugin 'tobyS/vmustache'
-
 " Frontend development
 Plugin 'leafgarland/typescript-vim'
 
@@ -224,7 +215,8 @@ nnoremap <leader>vs :source $MYVIMRC<cr>
 
 augroup ft_php
     autocmd!
-    autocmd FileType php nnoremap <buffer> <leader>d :call pdv#DocumentCurrentLine()<cr>
+    autocmd FileType php nnoremap <buffer> <leader>us :!phpctags -R --kinds=mdfcinp -f src.tags src/ vendor/sibben/<cr>
+    autocmd FileType php nnoremap <buffer> <leader>uv :!phpctags -R --kinds=mdfcinp -f vendor.tags vendor/symfony/ vendor/doctrine/<cr>
 augroup END
 
 " }}}
@@ -280,8 +272,5 @@ let g:tmux_navigator_save_on_switch = 1
 let g:gitgutter_map_keys = 0
 let g:gitgutter_sign_column_always = 1
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-let g:snipMate = {}
-let g:snipMate.snippet_version = 1
-let g:pdv_template_dir = $HOME .'/.vim/pdv_templates'
 
 " }}}
