@@ -56,8 +56,8 @@ set lazyredraw
 set updatetime=350
 
 set encoding=utf-8
-
-set tags=src.tags,vendor.tags
+set path=.,**
+set tags=.src.tags,.vendor.tags
 
 " }}}
 
@@ -94,8 +94,11 @@ set scrolloff=8
 set visualbell
 set wildmenu
 
+set splitright
+set splitbelow
+
 set list
-set listchars=tab:\ \ ,trail:-,eol:¬
+set listchars=tab:\ \ ,trail:\.
 
 " }}}
 
@@ -215,8 +218,8 @@ nnoremap <leader>vs :source $MYVIMRC<cr>
 
 augroup ft_php
     autocmd!
-    autocmd FileType php nnoremap <buffer> <leader>us :!phpctags -R --kinds=mdfcinp -f src.tags src/ vendor/sibben/<cr>
-    autocmd FileType php nnoremap <buffer> <leader>uv :!phpctags -R --kinds=mdfcinp -f vendor.tags vendor/symfony/ vendor/doctrine/<cr>
+    autocmd FileType php nnoremap <buffer> <leader>us :!phpctags -R --kinds=mdfcinp -f .src.tags src/ vendor/sibben/<cr>
+    autocmd FileType php nnoremap <buffer> <leader>uv :!phpctags -R --kinds=mdfcinp -f .vendor.tags vendor/symfony/ vendor/doctrine/<cr>
 augroup END
 
 " }}}
