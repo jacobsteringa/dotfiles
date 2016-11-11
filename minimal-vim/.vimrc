@@ -4,8 +4,7 @@ set nocompatible
 
 let mapleader = ';'
 
-filetype plugin on
-filetype indent on
+filetype plugin indent on
 
 " Colors {{{
 
@@ -19,8 +18,8 @@ colorscheme base16-eighties
 
 set autoread
 set autowrite
-set backspace=2
 set noswapfile
+set backspace=indent,eol,start
 set ttyfast
 set lazyredraw
 set updatetime=350
@@ -34,7 +33,6 @@ set path=.,**
 " Formatting {{{
 
 set fo+=tcqro
-
 set comments="s1:/**,mb:*,ex:*/,b://"
 
 " }}}
@@ -60,11 +58,12 @@ set cursorline
 set ruler
 set showcmd
 set showmatch
+set noshowmode
 set scrolloff=8
 set visualbell
 
 set list
-set listchars=tab:\|\ ,trail:-,eol:¬
+set listchars=tab:\ \ ,trail:\.
 
 " }}}
 
@@ -111,7 +110,7 @@ function! ChangeStatuslineColor()
         exe 'hi! StatusLine ctermfg=00 ctermbg=03'
         exe 'hi! WildMenu ctermfg=03 ctermbg=00'
     elseif (mode() ==# 'i')
-        exe 'hi! StatusLine ctermfg=00 ctermbg=01'
+        exe 'hi! StatusLine ctermfg=00 ctermbg=05'
         exe 'hi! WildMenu ctermfg=01 ctermbg=00'
     else
         exe 'hi! StatusLine ctermfg=00 ctermbg=04'
@@ -126,10 +125,8 @@ set laststatus=2
 set statusline=
 set statusline+=%{ChangeStatuslineColor()}              " change statusline color according to mode
 set statusline+=\ %{toupper(g:modeMap[mode()])}\        " mode
-set statusline+=\ %1*                                   " trailing space for mode and set color for filename
-set statusline+=\ %<%f                                  " filename
-set statusline+=\ %2*                                   " trailing space for filename and set color for flags
-set statusline+=%H%W%M%R                                " some flags
+set statusline+=%1*\ %<%f                               " filename
+set statusline+=\ %h%w%m%r                              " some flags
 set statusline+=%3*%#warningmsg#
 set statusline+=%1*%=                                   " reset color to normal
 set statusline+=\ %y\ %{(&fenc!=''?&fenc:&enc)}[%{&ff}] " filetype, encoding and file format
@@ -160,26 +157,7 @@ nnoremap <leader>c :nohlsearch<cr>
 nnoremap <leader>w :update<cr>
 nnoremap <leader>x :x<cr>
 
-nnoremap <C-b> :b
-nnoremap <C-p> :find
-
 nnoremap <leader>ve :vsplit $MYVIMRC<cr>
 nnoremap <leader>vs :source $MYVIMRC<cr>
-
-" }}}
-
-" File types {{{
-
-augroup ft_golang
-    autocmd!
-
-    autocmd FileType go setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
-augroup END
-
-augroup ft_javascript
-    autocmd!
-
-    autocmd FileType javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-augroup END
 
 " }}}
