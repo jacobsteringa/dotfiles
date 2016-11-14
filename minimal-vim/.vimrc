@@ -10,7 +10,7 @@ filetype plugin indent on
 
 set background=dark
 syntax on
-colorscheme base16-eighties
+colorscheme minimalist
 
 " }}}
 
