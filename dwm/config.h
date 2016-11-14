@@ -4,9 +4,9 @@
 
 /* appearance */
 static const char *fonts[] = {
-	"terminus:pixelsize=12"
+	"terminus:pixelsize=14"
 };
-static const char dmenufont[]       = "terminus:pixelsize=12";
+static const char dmenufont[]       = "terminus:pixelsize=14";
 static const char normbordercolor[] = "#515151";
 static const char normbgcolor[]     = "#393939";
 static const char normfgcolor[]     = "#99CC99";
