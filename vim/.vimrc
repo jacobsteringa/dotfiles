@@ -166,23 +166,27 @@ endfunction
 set laststatus=2
 
 set statusline=
-set statusline+=%{ChangeStatuslineColor()}              " change statusline color according to mode
-set statusline+=\ %{toupper(g:modeMap[mode()])}\        " mode
-set statusline+=%2*%{GitInfo()}                         " current branch, if any
-set statusline+=%1*\ %<%f                               " filename
-set statusline+=\ %h%w%m%r                              " some flags
-set statusline+=%3*%#warningmsg#
-set statusline+=%3*%{SyntasticStatuslineFlag()}         " syntastic errors
-set statusline+=%1*%=                                   " reset color to normal
-set statusline+=\ %y\ %{(&fenc!=''?&fenc:&enc)}[%{&ff}] " filetype, encoding and file format
-set statusline+=\ %0*%4p%%\ %10(%l:%L%)%4c              " cursor position
+set statusline+=%{ChangeStatuslineColor()}        " change statusline color according to mode
+set statusline+=\ %{toupper(g:modeMap[mode()])}\  " mode
+set statusline+=%3*%{GitInfo()}                   " current branch, if any
+set statusline+=%2*\ %<%f\ %1*                    " filename
+set statusline+=\ %h%w%m%r                        " some flags
+set statusline+=%4*%#warningmsg#
+set statusline+=%4*%{SyntasticStatuslineFlag()}   " syntastic errors
+set statusline+=%1*%=                             " reset color to normal
+set statusline+=\ %{&ff}                          " file format
+set statusline+=\ \|\ %{(&fenc!=''?&fenc:&enc)}   " encoding
+set statusline+=\ \|\ %{&ft}                      " filetype
+set statusline+=\ %2*%4p%%\ %0*%4l:%-3c           " cursor position
 
 " statusline neutral colors
-hi User1 ctermfg=12 ctermbg=11
+hi User1 ctermfg=12 ctermbg=10
+" statusline highligt colors
+hi User2 ctermfg=12 ctermbg=11
 " statusline git colors
-hi User2 ctermfg=00 ctermbg=06
+hi User3 ctermfg=00 ctermbg=06
 " statusline error colors
-hi User3 ctermfg=00 ctermbg=01
+hi User4 ctermfg=00 ctermbg=01
 
 " }}}
 
