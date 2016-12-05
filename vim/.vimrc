@@ -30,6 +30,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'vim-php/tagbar-phpctags.vim'
 Plugin 'joonty/vdebug'
+Plugin 'mileszs/ack.vim'
 
 " Frontend development
 Plugin 'leafgarland/typescript-vim'
@@ -279,5 +280,9 @@ let g:tmux_navigator_save_on_switch = 1
 let g:gitgutter_map_keys = 0
 let g:gitgutter_sign_column_always = 1
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
 
 " }}}
