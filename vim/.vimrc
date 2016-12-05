@@ -17,6 +17,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-dispatch'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'editorconfig/editorconfig-vim'
@@ -59,7 +60,7 @@ set updatetime=350
 
 set encoding=utf-8
 set path=.,**
-set tags=.src.tags,.vendor.tags
+set tags=.git/tags,vendor/tags
 
 " }}}
 
@@ -220,8 +221,9 @@ nnoremap <leader>vs :source $MYVIMRC<cr>
 
 augroup ft_php
     autocmd!
-    autocmd FileType php nnoremap <buffer> <leader>us :!phpctags -R --kinds=mdfcinp -f .src.tags src/ vendor/sibben/<cr>
-    autocmd FileType php nnoremap <buffer> <leader>uv :!phpctags -R --kinds=mdfcinp -f .vendor.tags vendor/symfony/ vendor/doctrine/<cr>
+    autocmd FileType php nnoremap <buffer> <leader>us :Start! phpctags -R --kinds=mdfcinp -f .git/tags src/ vendor/sibben/<cr>
+    " autocmd FileType php nnoremap <buffer> <leader>uv :Start! phpctags -R --kinds=mdfcinp --exclude=/Tests/ -f vendor/tags vendor/symfony/ vendor/doctrine/ vendor/friendsofsymfony/ vendor/ruflin/<cr>
+    autocmd FileType php nnoremap <buffer> <leader>uv :Start! phpctags -R --kinds=mdfcinp --exclude=/Tests/ -f vendor/tags vendor/<cr>
 augroup END
 
 " }}}
