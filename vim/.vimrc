@@ -13,27 +13,31 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
+" IDE like functionality
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'mileszs/ack.vim'
+
+" Git
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
+
+" Syntax
+Plugin 'lumiliet/vim-twig'
+Plugin 'groenewege/vim-less'
+Plugin 'leafgarland/typescript-vim'
+
+" Not categorized yet
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-dispatch'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
-Plugin 'lumiliet/vim-twig'
-Plugin 'groenewege/vim-less'
 Plugin 'majutsushi/tagbar'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
 Plugin 'vim-php/tagbar-phpctags.vim'
-Plugin 'joonty/vdebug'
-Plugin 'mileszs/ack.vim'
-
-" Frontend development
-Plugin 'leafgarland/typescript-vim'
 
 call vundle#end()
 filetype plugin on
@@ -198,8 +202,6 @@ set smartcase
 set incsearch
 set hlsearch
 
-nnoremap <leader>c :nohlsearch<cr>
-
 " }}}
 
 " Mappings {{{
@@ -224,11 +226,12 @@ nnoremap <leader>se :Errors<cr>
 nnoremap <leader>ve :vsplit $MYVIMRC<cr>
 nnoremap <leader>vs :source $MYVIMRC<cr>
 
+nnoremap <leader>c :nohlsearch<cr>
+
 augroup ft_php
     autocmd!
-    autocmd FileType php nnoremap <buffer> <leader>us :Start! phpctags -R --kinds=mdfcinp -f .git/tags src/ vendor/sibben/<cr>
-    " autocmd FileType php nnoremap <buffer> <leader>uv :Start! phpctags -R --kinds=mdfcinp --exclude=/Tests/ -f vendor/tags vendor/symfony/ vendor/doctrine/ vendor/friendsofsymfony/ vendor/ruflin/<cr>
-    autocmd FileType php nnoremap <buffer> <leader>uv :Start! phpctags -R --kinds=mdfcinp --exclude=/Tests/ -f vendor/tags vendor/<cr>
+    autocmd FileType php nnoremap <buffer> <leader>us :Start! ctags --languages=PHP -f .git/tags src/<cr>
+    autocmd FileType php nnoremap <buffer> <leader>uv :Start! ctags --languages=PHP -f vendor/tags vendor/<cr>
 augroup END
 
 " }}}
@@ -269,13 +272,6 @@ let g:syntastic_php_phpmd_args = 'text unusedcode'
 let g:tagbar_sort = 0
 let g:tagbar_show_linenumbers = -1
 let g:tagbar_phpctags_bin = '/usr/local/bin/phpctags'
-
-" }}}
-
-" Vdebug {{{
-let g:vdebug_options = {
-\    "port" : 9999
-\}
 
 " }}}
 
