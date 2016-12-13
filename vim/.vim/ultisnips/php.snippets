@@ -1,57 +1,109 @@
 global !p
-def docblock_params(arguments):
-	if len(arguments) == 0:
-		return '';
-	
-	lines = arguments.split(', ')
-	lines = '\n'.join(map(lambda x: '\t * @param %s' % x, lines))
-	return '\n\t *\n' + lines
+def get_args(args):
+	return args.split(', ')
+
+def get_argument_type(arg):
+	parts = arg.split(' ')
+
+	if parts[0].startswith('$'):
+		if len(parts) < 3:
+			return 'mixed'
+
+		if parts[2] in ['[]', 'array()']:
+			return 'array'
+
+		if parts[2] in ['true', 'false']:
+			return 'bool'
+
+		return 'mixed'
+
+	return arg.split(' ')[0]
+
+def get_argument_name(arg):
+	parts = arg.split(' ')
+
+	if parts[0].startswith('$'):
+		return parts[0][1:]
+
+	if len(parts) > 1:
+		return get_argument_name(parts[1])
+
+	return ''
+
+def get_max_type_length(args):
+	return max([len(type) for type in map(get_argument_type, args)])
+
+def get_max_argument_length(args):
+	return max([len(type) for type in map(get_argument_name, args)])
+
+def format_arg(arg, type_length):
+	argument_type = get_argument_type(arg)
+	argument_name = get_argument_name(arg)
+
+	if argument_name:
+		argument_name = '$%s' % argument_name
+
+	return ' * @param %s %s' % (argument_type.ljust(type_length), argument_name)
+
+def write_docblock_params(t, snip):
+	if len(t) == 0:
+		snip += ' * @todo'
+
+		return
+
+	args = get_args(t)
+	max_length = get_max_type_length(args)
+
+	for arg in args:
+		snip += format_arg(arg, max_length)
+
+def write_constructor_setters(t, snip):
+	if len(t) == 0:
+		return
+
+	snip >> 1
+
+	args = get_args(t)
+	max_length = get_max_argument_length(args)
+
+	for arg in args:
+		arg_name = get_argument_name(arg)
+
+		if arg_name:
+			snip += '$this->%s = $%s;' % (arg_name.ljust(max_length), arg_name)
 endglobal
 
-snippet constr
-/**
- * $1 constructor`!p snip.rv = docblock_params(t[2])`
+snippet construct "__construct()" b
+/**`!p write_docblock_params(t[1], snip)`
  */
-public function __construct($2)
-{
-	$0
-}
-
+public function __construct($1)
+{`!p write_constructor_setters(t[1], snip)`
+}$0
 endsnippet
 
-snippet gett
-/**
- * @return ${2:string}
+snippet pubf "public function()" b
+/**`!p write_docblock_params(t[2], snip)`
  */
-public function get${1/\w+\s*/\u$0/}()
+public function ${1:name}($2)
 {
-	return $this->$1;
-}
-
+	${3:// code here}
+}$0
 endsnippet
 
-snippet sett
-/**
- * @param ${2:string} $$1
+snippet prof "protected function()" b
+/**`!p write_docblock_params(t[2], snip)`
  */
-public function set${1/\w+\s*/\u$0/}($$1)
+protected function ${1:name}($2)
 {
-	$this->$1 = $$1;
-}
-
+	${3:// code here}
+}$0
 endsnippet
 
-snippet fsett
-/**
- * @param ${2:string} $$1
- *
- * @return ${3:`!p snip.rv=snip.basename`}
+snippet prif "private function()" b
+/**`!p write_docblock_params(t[2], snip)`
  */
-public function set${1/\w+\s*/\u$0/}($$1)
+private function ${1:name}($2)
 {
-	$this->$1 = $$1;
-
-	return $this;
-}
-
+	${3:// code here}
+}$0
 endsnippet
