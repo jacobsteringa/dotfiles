@@ -209,6 +209,7 @@ nnoremap <leader>x :x<cr>
 nnoremap <leader>b :NERDTreeToggle<cr>
 
 nnoremap <c-b> :CtrlPBuffer<cr>
+nnoremap <leader>p :CtrlPTag<cr>
 
 nnoremap <leader>r :TagbarOpenAutoClose<cr>
 nnoremap <leader>t :TagbarToggle<cr>
@@ -226,9 +227,8 @@ nnoremap <leader>vs :source $MYVIMRC<cr>
 
 augroup ft_php
     autocmd!
-    autocmd FileType php nnoremap <buffer> <leader>us :Start! phpctags -R --kinds=mdfcinp -f .git/tags src/ vendor/sibben/<cr>
-    " autocmd FileType php nnoremap <buffer> <leader>uv :Start! phpctags -R --kinds=mdfcinp --exclude=/Tests/ -f vendor/tags vendor/symfony/ vendor/doctrine/ vendor/friendsofsymfony/ vendor/ruflin/<cr>
-    autocmd FileType php nnoremap <buffer> <leader>uv :Start! phpctags -R --kinds=mdfcinp --exclude=/Tests/ -f vendor/tags vendor/<cr>
+    autocmd FileType php nnoremap <buffer> <leader>us :Start! ctags --languages=PHP -f .git/tags src/<cr>
+    autocmd FileType php nnoremap <buffer> <leader>uv :Start! ctags --languages=PHP -f vendor/tags vendor/<cr>
 augroup END
 
 " }}}
@@ -239,7 +239,7 @@ let g:ctrlp_lazy_update = 350
 let g:ctrlp_max_files = 0
 let g:ctrlp_switch_buffer = 'Et'
 let g:ctrlp_working_path_mode = 'ar'
-let g:ctrlp_user_command = 'ag %s -l --nocolor --skip-vcs-ignores --hidden -g ""'
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
 hi! CtrlPMatch ctermfg=10 ctermbg=03
 hi! CtrlPMode1 ctermfg=02 ctermbg=10
