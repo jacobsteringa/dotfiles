@@ -18,6 +18,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'mileszs/ack.vim'
+Plugin 'SirVer/ultisnips'
 
 " Git
 Plugin 'airblade/vim-gitgutter'
@@ -265,6 +266,14 @@ if findfile('phpcs', 'vendor/bin') != ''
 endif
 
 let g:syntastic_php_phpmd_args = 'text unusedcode'
+
+" }}}
+
+" UltiSnips {{{
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+let g:UltiSnipsSnippetDirectories=["ultisnips"]
 
 " }}}
 
