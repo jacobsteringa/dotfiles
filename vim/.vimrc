@@ -178,13 +178,13 @@ set statusline+=\ %{toupper(g:modeMap[mode()])}\  " mode
 set statusline+=%3*%{GitInfo()}                   " current branch, if any
 set statusline+=%2*\ %<%f\ %1*                    " filename
 set statusline+=\ %h%w%m%r                        " some flags
-set statusline+=%4*%#warningmsg#
-set statusline+=%4*%{SyntasticStatuslineFlag()}   " syntastic errors
 set statusline+=%1*%=                             " reset color to normal
 set statusline+=\ %{&ff}                          " file format
 set statusline+=\ \|\ %{(&fenc!=''?&fenc:&enc)}   " encoding
 set statusline+=\ \|\ %{&ft}                      " filetype
 set statusline+=\ %2*%4p%%\ %0*%4l:%-3c           " cursor position
+set statusline+=%4*%#warningmsg#
+set statusline+=%4*%{SyntasticStatuslineFlag()}   " syntastic errors
 
 " statusline neutral colors
 hi User1 ctermfg=12 ctermbg=10
