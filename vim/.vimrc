@@ -230,6 +230,8 @@ nnoremap <leader>vs :source $MYVIMRC<cr>
 
 nnoremap <leader>c :nohlsearch<cr>
 
+nnoremap <leader>a :Ack <cword><cr>
+
 augroup ft_php
     autocmd!
     autocmd FileType php nnoremap <buffer> <leader>us :Start! ctags --languages=PHP -f .git/tags src/<cr>
