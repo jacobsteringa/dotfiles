@@ -260,11 +260,23 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_ignore_files = ['/vendor/', '/Tests/', '/tests/']
 
-let g:syntastic_js_checkers = ['jshint', 'jscs']
+let g:syntastic_javascript_checkers = ['jshint', 'jscs']
 let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 
 if findfile('phpcs', 'vendor/bin') != ''
     let g:syntastic_php_phpcs_exec = './vendor/bin/phpcs'
+endif
+
+if findfile('phpcs', 'bin') != ''
+    let g:syntastic_php_phpcs_exec = './bin/phpcs'
+endif
+
+if findfile('phpmd', 'vendor/bin') != ''
+    let g:syntastic_php_phpmd_exec = './vendor/bin/phpmd'
+endif
+
+if findfile('phpmd', 'bin') != ''
+    let g:syntastic_php_phpmd_exec = './bin/phpmd'
 endif
 
 let g:syntastic_php_phpmd_args = 'text unusedcode'
