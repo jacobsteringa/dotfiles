@@ -240,11 +240,12 @@ augroup END
 
 " CtrlP {{{
 let g:ctrlp_by_filename = 1
-let g:ctrlp_lazy_update = 350
+let g:ctrlp_lazy_update = 250
 let g:ctrlp_max_files = 0
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:15,results:20'
 let g:ctrlp_switch_buffer = 'Et'
-let g:ctrlp_working_path_mode = 'ar'
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_user_command = 'ag %s -l --nocolor --skip-vcs-ignores --hidden --ignore .git -g ""'
 
 hi! CtrlPMatch ctermfg=10 ctermbg=03
 hi! CtrlPMode1 ctermfg=02 ctermbg=10
