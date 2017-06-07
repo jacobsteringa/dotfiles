@@ -19,8 +19,7 @@ alias ..5='cd ../../../../../'
 
 alias tmux='TERM=xterm-256color $(which tmux)'
 
-# fasd aliases
-alias v='f -e vim'
+alias v='vim $(fzf)'
 
 # aliases for php cli
 # php command-line applications (like composer) should run with xdebug disabled,
