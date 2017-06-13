@@ -4,45 +4,39 @@ set nocompatible
 
 let mapleader = ';'
 
-" Vundle {{{
+" Plugins {{{
 
-filetype off
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " IDE like functionality
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'mileszs/ack.vim'
-Plugin 'SirVer/ultisnips'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'mileszs/ack.vim'
+Plug 'SirVer/ultisnips'
 
 " Git
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
 " Syntax
-Plugin 'lumiliet/vim-twig'
-Plugin 'groenewege/vim-less'
-Plugin 'leafgarland/typescript-vim'
+" Plug 'lumiliet/vim-twig'
+" Plug 'groenewege/vim-less'
+" Plug 'leafgarland/typescript-vim'
 
 " Not categorized yet
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-dispatch'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'ervandew/supertab'
-Plugin 'godlygeek/tabular'
-Plugin 'majutsushi/tagbar'
-Plugin 'vim-php/tagbar-phpctags.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'ervandew/supertab'
+Plug 'godlygeek/tabular'
+Plug 'majutsushi/tagbar'
+Plug 'vim-php/tagbar-phpctags.vim'
 
-call vundle#end()
-filetype plugin on
-filetype indent on
+call plug#end()
 
 " }}}
 
@@ -66,7 +60,7 @@ set updatetime=350
 
 set encoding=utf-8
 set path=.,**
-set tags=.git/tags,vendor/tags
+set tags=tags,.git/tags,vendor/tags
 
 " }}}
 
@@ -211,8 +205,9 @@ nnoremap <leader>x :x<cr>
 
 nnoremap <leader>b :NERDTreeToggle<cr>
 
-nnoremap <c-b> :CtrlPBuffer<cr>
-nnoremap <leader>p :CtrlPTag<cr>
+nnoremap <c-p> :Files<cr>
+nnoremap <c-b> :Buffers<cr>
+nnoremap <leader>p :Tags<cr>
 
 nnoremap <leader>r :TagbarOpenAutoClose<cr>
 nnoremap <leader>t :TagbarToggle<cr>
@@ -232,6 +227,11 @@ nnoremap <leader>c :nohlsearch<cr>
 
 nnoremap <leader>a :Ack <cword><cr>
 
+augroup filetypedetect
+    autocmd BufRead,BufNewFile *.less set filetype=css
+    autocmd BufRead,BufNewFile *.html.twig set filetype=html
+augroup END
+
 augroup ft_php
     autocmd!
     autocmd FileType php nnoremap <buffer> <leader>us :Start! ctags --languages=PHP -f .git/tags src/<cr>
@@ -240,18 +240,8 @@ augroup END
 
 " }}}
 
-" CtrlP {{{
-let g:ctrlp_by_filename = 1
-let g:ctrlp_lazy_update = 250
-let g:ctrlp_max_files = 0
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:15,results:20'
-let g:ctrlp_switch_buffer = 'Et'
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_user_command = 'ag %s -l --nocolor --skip-vcs-ignores --hidden --ignore .git -g ""'
-
-hi! CtrlPMatch ctermfg=10 ctermbg=03
-hi! CtrlPMode1 ctermfg=02 ctermbg=10
-hi! CtrlPMode2 ctermfg=00 ctermbg=02
+" fzf {{{
+let g:fzf_buffer_jump = 1
 
 " }}}
 
@@ -262,7 +252,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_ignore_files = ['/vendor/', '/Tests/', '/tests/']
 
-let g:syntastic_javascript_checkers = ['jshint', 'jscs']
+let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 
 if findfile('phpcs', 'vendor/bin') != ''
