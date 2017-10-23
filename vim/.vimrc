@@ -24,9 +24,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
 
 " Not categorized yet
-Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ervandew/supertab'
@@ -293,7 +294,6 @@ let g:tagbar_phpctags_bin = '/usr/local/bin/phpctags'
 
 " Other plugins {{{
 let g:tmux_navigator_save_on_switch = 1
-let g:gitgutter_map_keys = 0
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 if executable('ag')
