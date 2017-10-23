@@ -87,6 +87,7 @@ set shiftwidth=4
 set number
 set relativenumber
 set numberwidth=4
+set signcolumn=yes
 set cursorline
 set ruler
 set showcmd
@@ -100,6 +101,8 @@ set splitbelow
 
 set list
 set listchars=tab:\ \ ,trail:\.
+
+set diffopt+=vertical
 
 " }}}
 
@@ -291,7 +294,6 @@ let g:tagbar_phpctags_bin = '/usr/local/bin/phpctags'
 " Other plugins {{{
 let g:tmux_navigator_save_on_switch = 1
 let g:gitgutter_map_keys = 0
-let g:gitgutter_sign_column_always = 1
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 if executable('ag')
