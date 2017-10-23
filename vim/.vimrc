@@ -21,9 +21,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 " Syntax
-" Plug 'lumiliet/vim-twig'
-" Plug 'groenewege/vim-less'
-" Plug 'leafgarland/typescript-vim'
+Plug 'sheerun/vim-polyglot'
 
 " Not categorized yet
 Plug 'tpope/vim-surround'
