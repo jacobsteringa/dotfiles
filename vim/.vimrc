@@ -288,7 +288,6 @@ let g:UltiSnipsSnippetDirectories=["ultisnips"]
 " Tagbar {{{
 let g:tagbar_sort = 0
 let g:tagbar_show_linenumbers = -1
-let g:tagbar_phpctags_bin = '/usr/local/bin/phpctags'
 
 " }}}
 
