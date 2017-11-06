@@ -229,11 +229,6 @@ nnoremap <leader>c :nohlsearch<cr>
 
 nnoremap <leader>a :Ack <cword><cr>
 
-augroup filetypedetect
-    autocmd BufRead,BufNewFile *.less set filetype=css
-    autocmd BufRead,BufNewFile *.html.twig set filetype=html
-augroup END
-
 augroup ft_php
     autocmd!
     autocmd FileType php nnoremap <buffer> <leader>us :Start! ctags --languages=PHP -f .git/tags src/<cr>
