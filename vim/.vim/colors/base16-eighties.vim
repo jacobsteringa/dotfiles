@@ -231,6 +231,9 @@ call <sid>hi("NERDTreeExecFile",  s:gui05, "", s:cterm05, "", "", "")
 call <sid>hi("phpMemberSelector",  s:gui05, "", s:cterm05, "", "", "")
 call <sid>hi("phpComparison",      s:gui05, "", s:cterm05, "", "", "")
 call <sid>hi("phpParent",          s:gui05, "", s:cterm05, "", "", "")
+call <sid>hi("phpDocTags",         s:gui05, "", s:cterm0A, "", "", "")
+call <sid>hi("phpDocParam",        s:gui05, "", s:cterm03, "", "", "")
+call <sid>hi("phpDocIdentifier",   s:gui05, "", s:cterm04, "", "", "")
 
 " Python highlighting
 call <sid>hi("pythonOperator",  s:gui0E, "", s:cterm0E, "", "", "")
