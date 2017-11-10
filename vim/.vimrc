@@ -205,14 +205,15 @@ set hlsearch
 nnoremap <leader>w :update<cr>
 nnoremap <leader>x :x<cr>
 
-nnoremap <leader>b :NERDTreeToggle<cr>
+nnoremap <leader>f :NERDTreeToggle<cr>
 
 nnoremap <c-p> :Files<cr>
 nnoremap <c-b> :Buffers<cr>
-nnoremap <leader>p :Tags<cr>
+nnoremap <leader>t :Tags<cr>
 
-nnoremap <leader>r :TagbarOpenAutoClose<cr>
-nnoremap <leader>t :TagbarToggle<cr>
+nnoremap <leader>ba :TagbarOpenAutoClose<cr>
+nnoremap <leader>bo :TagbarOpen<cr>
+nnoremap <leader>bc :TagbarClose<cr>
 
 nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gs :Gstatus<cr>
