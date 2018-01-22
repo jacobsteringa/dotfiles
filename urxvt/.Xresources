@@ -13,7 +13,7 @@ URxvt.fading:               0
 
 URxvt.scrollStyle:          plain
 URxvt.scrollBar:            false
-URxvt.internalBorder:       3
+URxvt.internalBorder:       16
 
 URxvt.font:                 -*-terminus-medium-r-*-*-14-*-*-*-*-*-*-*
 URxvt.boldFont:             -*-terminus-medium-r-*-*-14-*-*-*-*-*-*-*
