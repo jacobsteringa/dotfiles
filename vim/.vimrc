@@ -20,6 +20,9 @@ Plug 'SirVer/ultisnips'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
+" Colors
+Plug 'chriskempson/base16-vim'
+
 " Syntax
 Plug 'sheerun/vim-polyglot'
 
@@ -42,8 +45,11 @@ call plug#end()
 " Colors {{{
 
 set background=dark
-syntax on
-colorscheme base16-eighties
+if filereadable(expand("~/.vimrc_background"))
+    syntax on
+    let base16colorspace=256
+    source ~/.vimrc_background
+endif
 
 " }}}
 
@@ -183,9 +189,9 @@ set statusline+=%4*%#warningmsg#
 set statusline+=%4*%{SyntasticStatuslineFlag()}   " syntastic errors
 
 " statusline neutral colors
-hi User1 ctermfg=12 ctermbg=10
+hi User1 ctermfg=20 ctermbg=18
 " statusline highligt colors
-hi User2 ctermfg=12 ctermbg=11
+hi User2 ctermfg=20 ctermbg=19
 " statusline git colors
 hi User3 ctermfg=00 ctermbg=06
 " statusline error colors
