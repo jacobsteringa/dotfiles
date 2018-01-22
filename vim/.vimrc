@@ -249,6 +249,11 @@ augroup ft_php
     autocmd FileType php nnoremap <buffer> <leader>uv :Start! ctags --languages=PHP -f vendor/tags vendor/<cr>
 augroup END
 
+augroup ft_xml
+    autocmd!
+    autocmd FileType xml nnoremap <buffer> <leader>pp :%!xmllint --format -<cr>
+augroup END
+
 " }}}
 
 " fzf {{{
