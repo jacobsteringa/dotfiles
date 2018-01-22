@@ -52,10 +52,13 @@ if filereadable(expand("~/.vimrc_background"))
 
     " Better linenr and signcolumn colors
     hi LineNr ctermbg=00 ctermfg=08
+    hi SignColumn ctermbg=00 ctermfg=08
     hi GitGutterAdd ctermbg=00 ctermfg=02
     hi GitGutterChange ctermbg=00 ctermfg=04
     hi GitGutterDelete ctermbg=00 ctermfg=01
     hi GitGutterChangeDelete ctermbg=00 ctermfg=05
+    hi SyntasticWarningSign ctermbg=00 ctermfg=03
+    hi SyntasticErrorSign ctermbg=01 ctermfg=00
 endif
 
 " }}}
