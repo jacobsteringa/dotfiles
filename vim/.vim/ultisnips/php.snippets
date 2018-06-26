@@ -73,6 +73,18 @@ def write_constructor_setters(t, snip):
 			snip += '$this->%s = $%s;' % (arg_name.ljust(max_length), arg_name)
 endglobal
 
+snippet class "PHP class" b
+namespace $1;
+
+/**
+ * `!p snip.rv = snip.basename`
+ */
+class `!p snip.rv = snip.basename` ${2: implements ${3:interface}}
+{
+	$0
+}
+endsnippet
+
 snippet construct "__construct()" b
 /**`!p write_docblock_params(t[1], snip)`
  */
@@ -103,6 +115,17 @@ snippet prif "private function()" b
 /**`!p write_docblock_params(t[2], snip)`
  */
 private function ${1:name}($2)
+{
+	${3:// code here}
+}$0
+endsnippet
+
+snippet pubsf "public static function()" b
+/**`!p write_docblock_params(t[2], snip)`
+ *
+ * @static
+ */
+public static function ${1:name}($2)
 {
 	${3:// code here}
 }$0
