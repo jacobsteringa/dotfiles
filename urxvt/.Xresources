@@ -7,13 +7,13 @@ Xft.lcdfilter:              lcddefault
 
 URxvt.loginShell:           false
 URxvt.depth:                32
-URxvt.geometry:             80x24
+URxvt.geometry:             100x32
 URxvt.transparant:          false
 URxvt.fading:               0
 
 URxvt.scrollStyle:          plain
 URxvt.scrollBar:            false
-URxvt.internalBorder:       16
+URxvt.internalBorder:       6
 
 URxvt.font:                 -*-terminus-medium-r-*-*-14-*-*-*-*-*-*-*
 URxvt.boldFont:             -*-terminus-medium-r-*-*-14-*-*-*-*-*-*-*
