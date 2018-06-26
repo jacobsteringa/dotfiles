@@ -1,0 +1,3 @@
+compton -b &
+~/.fehbg &
+(sleep 1s && tint2) &

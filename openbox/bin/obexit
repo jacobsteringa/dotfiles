@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+if [ -z $1 ]; then
+    echo "Usage $(basename $0) [reboot|shutdown]"
+    exit
+fi
+
+case "$1" in
+    shutdown)
+        zenity --question --ok-label "Shutdown" --text "Are you sure you want to shutdown?" && systemctl poweroff
+        ;;
+    reboot)
+        zenity --question --ok-label "Reboot" --text "Are you sure you want to reboot?" && systemctl reboot
+        ;;
+esac
