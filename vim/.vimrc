@@ -316,4 +316,11 @@ if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
 
+let g:NERDTreeHijackNetrw = 0
+let g:NERDTreeShowBookmarks = 1
+
+if isdirectory(expand(".git"))
+    let g:NERDTreeBookmarksFile = '.git/nerdtree_bookmarks'
+endif
+
 " }}}
