@@ -36,7 +36,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'majutsushi/tagbar'
-Plug 'vim-php/tagbar-phpctags.vim'
 
 call plug#end()
 
