@@ -9,8 +9,11 @@ filetype plugin indent on
 " Colors {{{
 
 set background=dark
-syntax on
-colorscheme minimalist
+syntax off
+
+hi LineNr ctermfg=07 ctermbg=00
+hi CursorLine ctermbg=18 cterm=none
+hi CursorLineNr ctermfg=07 ctermbg=18
 
 " }}}
 
@@ -58,7 +61,6 @@ set cursorline
 set ruler
 set showcmd
 set showmatch
-set noshowmode
 set scrolloff=8
 set visualbell
 
@@ -78,68 +80,10 @@ set wildignore=*.jpg,*.jpeg,*.png,*.gif
 
 " Statusline {{{
 
-" Copied from and inspired by: https://gabri.me/blog/diy-vim-statusline
-
-let g:modeMap = {
-    \ 'n'  : 'Normal',
-    \ 'no' : 'N Operator Pending',
-    \ 'v'  : 'Visual',
-    \ 'V'  : 'Visual-Line',
-    \ '' : 'Visual-Block',
-    \ 's'  : 'Select',
-    \ 'S'  : 'Select-Line',
-    \ '^S' : 'Select-Block',
-    \ 'i'  : 'Insert',
-    \ 'R'  : 'Replace',
-    \ 'Rv' : 'Visual-Replace',
-    \ 'c'  : 'Command',
-    \ 'cv' : 'Vim Ex',
-    \ 'ce' : 'Ex',
-    \ 'r'  : 'Prompt',
-    \ 'rm' : 'More',
-    \ 'r?' : 'Confirm',
-    \ '!'  : 'Shell',
-    \ 't'  : 'Terminal'
-    \ }
-
-function! ChangeStatuslineColor()
-    if (mode() =~# '\v(n|no)')
-        exe 'hi! StatusLine ctermfg=00 ctermbg=02'
-        exe 'hi! WildMenu ctermfg=02 ctermbg=00'
-    elseif (mode() =~# '\v(v|V)' || g:modeMap[mode()] ==# 'Visual-Block' || get(g:modeMap, mode(), '') ==# 't')
-        exe 'hi! StatusLine ctermfg=00 ctermbg=03'
-        exe 'hi! WildMenu ctermfg=03 ctermbg=00'
-    elseif (mode() ==# 'i')
-        exe 'hi! StatusLine ctermfg=00 ctermbg=05'
-        exe 'hi! WildMenu ctermfg=01 ctermbg=00'
-    else
-        exe 'hi! StatusLine ctermfg=00 ctermbg=04'
-        exe 'hi! WildMenu ctermfg=04 ctermbg=00'
-    endif
-
-    return ''
-endfunction
-
 set laststatus=2
-
-set statusline=
-set statusline+=%{ChangeStatuslineColor()}        " change statusline color according to mode
-set statusline+=\ %{toupper(g:modeMap[mode()])}\  " mode
-set statusline+=%2*\ %<%f\ %1*                    " filename
-set statusline+=\ %h%w%m%r                        " some flags
-set statusline+=%3*%#warningmsg#
-set statusline+=%1*%=                             " reset color to normal
-set statusline+=\ %{&ff}                          " file format
-set statusline+=\ \|\ %{(&fenc!=''?&fenc:&enc)}   " encoding
-set statusline+=\ \|\ %{&ft}                      " filetype
-set statusline+=\ %2*%4p%%\ %0*%4l:%-3c           " cursor position
-
-" statusline neutral colors
-hi User1 ctermfg=12 ctermbg=10
-" statusline highligt colors
-hi User2 ctermfg=12 ctermbg=11
-" statusline error colors
-hi User3 ctermfg=00 ctermbg=01
+set statusline=%<%f\ %h%w%m%r
+set statusline+=%=%{&ff}\ \|\ %{(&fenc!=''?&fenc:&enc)}\ \|\ %{&ft}\ \|
+set statusline+=\ %4p%%\ \|\ %4l:%-3c
 
 " }}}
 
