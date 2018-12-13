@@ -93,6 +93,52 @@ public function __construct($1)
 }$0
 endsnippet
 
+snippet getset "public getter and setter" b
+/**
+ * @param ${2:mixed} \$$1
+ *
+ * @return ${3:mixed}
+ */
+public function set${1/\w+\s*/\u$0/g}($4\$$1)
+{
+	\$this->${1:property} = \$$1;
+
+	return \$this;
+}
+
+/**
+ * @return $2
+ */
+public function get${1/\w+\s*/\u$0/g}()
+{
+	return \$this->$1;
+}$0
+endsnippet
+
+snippet setter "public setter" b
+/**
+ * @param ${2:mixed} \$$1
+ *
+ * @return ${3:mixed}
+ */
+public function set${1/\w+\s*/\u$0/g}($4\$$1)
+{
+	\$this->${1:property} = \$$1;
+
+	return \$this;
+}$0
+endsnippet
+
+snippet getter "public getter" b
+/**
+ * @return ${2:mixed}
+ */
+public function get${1/\w+\s*/\u$0/g}()
+{
+	return \$this->${1:property};
+}$0
+endsnippet
+
 snippet pubf "public function()" b
 /**`!p write_docblock_params(t[2], snip)`
  */
