@@ -18,6 +18,7 @@ HISTCONTROL=ignoreboth
 # append to the history file, don't overwrite it
 shopt -s histappend
 
+# infinite history
 HISTSIZE=
 HISTFILESIZE=
 HISTTIMEFORMAT="[%F %T] "
@@ -33,11 +34,6 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
 # configure git prompt
 export GIT_PS1_DESCRIBE_STYLE=branch
 export GIT_PS1_SHOWDIRTYSTATE=1
@@ -46,13 +42,13 @@ export GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWUPSTREAM=verbose
 export GIT_PS1_SHOWCOLORHINTS=1
 
-export PROMPT_COMMAND='__git_ps1 "\n\[\e[01;30m\]\t \[\e[01;34m\]\w\[\e[0m\]" " > "'
+export PROMPT_COMMAND='__git_ps1 "\n\W" " > "'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
 
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
