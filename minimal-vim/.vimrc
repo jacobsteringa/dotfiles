@@ -31,6 +31,8 @@ set encoding=utf-8
 
 set path=.,**
 
+set tags=tags,.git/tags
+
 " }}}
 
 " Formatting {{{
@@ -106,5 +108,8 @@ nnoremap <C-b> :ls<cr>:b<space>
 
 nnoremap <leader>ve :vsplit $MYVIMRC<cr>
 nnoremap <leader>vs :source $MYVIMRC<cr>
+
+nnoremap <leader>f :Explore<cr>
+nnoremap <leader>vf :Vexplore<cr>
 
 " }}}
