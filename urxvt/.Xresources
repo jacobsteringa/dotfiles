@@ -15,9 +15,9 @@ URxvt.scrollStyle:          plain
 URxvt.scrollBar:            false
 URxvt.internalBorder:       6
 
-URxvt.font:                 -*-terminus-medium-r-*-*-14-*-*-*-*-*-*-*
-URxvt.boldFont:             -*-terminus-medium-r-*-*-14-*-*-*-*-*-*-*
-URxvt.italicFont:           -*-terminus-medium-o-*-*-14-*-*-*-*-*-*-*
+URxvt.font:                 xft:Terminus:pixelsize=14
+URxvt.boldFont:             xft:Terminus:pixelsize=14
+URxvt.italicFont:           xft:Terminus:italic:pixelsize=14
 URxvt.lineSpace:            0
 
 URxvt.cursorBlink:          false
@@ -28,9 +28,8 @@ URxvt.saveLines:            2048
 URxvt.visualBell:           false
 URxvt.urgentOnBell:         true
 
-URxvt.perl-ext-common:      default,matcher
-URxvt.url-launcher:         /usr/bin/xdg-open
-URxvt.matcher.button:       1
+URxvt.perl-ext-common:
+URxvt.perl-ext:
 
 URxvt*foreground:  #d5c4a1
 URxvt*background:  #282828
