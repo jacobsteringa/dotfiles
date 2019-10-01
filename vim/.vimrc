@@ -237,7 +237,8 @@ nnoremap <leader>bc :TagbarClose<cr>
 
 nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gd :Gdiffsplit<cr>
+nnoremap <leader>gr :Gdiffsplit!<cr>
 nnoremap <leader>gc :Gcommit<cr>
 
 nnoremap <leader>st :SyntasticToggleMode<cr>
