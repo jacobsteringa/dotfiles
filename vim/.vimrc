@@ -262,6 +262,11 @@ augroup ft_xml
     autocmd FileType xml nnoremap <buffer> <leader>pp :%!xmllint --format -<cr>
 augroup END
 
+augroup ft_json
+    autocmd!
+    autocmd FileType json nnoremap <buffer> <leader>pp :%!jq .<cr>
+augroup END
+
 " }}}
 
 " fzf {{{
