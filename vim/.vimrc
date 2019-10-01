@@ -11,7 +11,6 @@ call plug#begin('~/.vim/plugged')
 " IDE like functionality
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'mileszs/ack.vim'
 Plug 'SirVer/ultisnips'
@@ -220,7 +219,7 @@ set hlsearch
 nnoremap <leader>w :update<cr>
 nnoremap <leader>x :x<cr>
 
-nnoremap <leader>f :NERDTreeToggle<cr>
+nnoremap <leader>f :20Lexplore<cr>
 
 nnoremap <c-p> :Files<cr>
 nnoremap <c-b> :Buffers<cr>
@@ -308,6 +307,11 @@ let g:tagbar_show_linenumbers = -1
 
 " }}}
 
+" Netrw {{{
+let g:netrw_banner=0
+let g:netrw_liststyle=3
+" }}}
+
 " Other plugins {{{
 let g:tmux_navigator_save_on_switch = 1
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
@@ -315,12 +319,4 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
-
-let g:NERDTreeHijackNetrw = 0
-let g:NERDTreeShowBookmarks = 1
-
-if isdirectory(expand(".git"))
-    let g:NERDTreeBookmarksFile = '.git/nerdtree_bookmarks'
-endif
-
 " }}}
