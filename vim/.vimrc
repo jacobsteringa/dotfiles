@@ -12,7 +12,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/syntastic'
-Plug 'mileszs/ack.vim'
 Plug 'SirVer/ultisnips'
 
 " Git
@@ -213,6 +212,13 @@ set smartcase
 set incsearch
 set hlsearch
 
+if executable('ag')
+    set grepprg=ag\ --vimgrep\ $*
+    set grepformat=%f:%l:%c:%m
+endif
+
+command! -nargs=+ Ag execute 'silent grep! <args>' | botright copen | redraw!
+
 " }}}
 
 " Mappings {{{
@@ -242,7 +248,7 @@ nnoremap <leader>vs :source $MYVIMRC<cr>
 
 nnoremap <leader>c :nohlsearch<cr>
 
-nnoremap <leader>a :Ack <cword><cr>
+nnoremap <leader>a :Ag <cword><cr>
 
 augroup ft_php
     autocmd!
@@ -315,8 +321,4 @@ let g:netrw_liststyle=3
 " Other plugins {{{
 let g:tmux_navigator_save_on_switch = 1
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-
-if executable('ag')
-    let g:ackprg = 'ag --vimgrep'
-endif
 " }}}
