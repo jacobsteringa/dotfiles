@@ -221,6 +221,15 @@ command! -nargs=+ Ag execute 'silent grep! <args>' | botright copen | redraw!
 
 " }}}
 
+" Spellcheck {{{
+augroup ft_spell
+    autocmd!
+    autocmd FileType text setlocal spell spelllang=nl
+    autocmd FileType mail setlocal spell spelllang=nl
+    autocmd FileType markdown setlocal spell spelllang=nl
+augroup END
+" }}}
+
 " Mappings {{{
 nnoremap <leader>w :update<cr>
 nnoremap <leader>x :x<cr>
