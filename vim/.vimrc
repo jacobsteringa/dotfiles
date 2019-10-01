@@ -73,6 +73,7 @@ set updatetime=350
 set encoding=utf-8
 set path=.,**
 set tags=tags,.git/tags,vendor/tags
+set complete-=i
 
 " }}}
 
