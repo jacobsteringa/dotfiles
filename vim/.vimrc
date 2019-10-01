@@ -32,7 +32,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ervandew/supertab'
-Plug 'godlygeek/tabular'
+Plug 'tommcdo/vim-lion'
 Plug 'majutsushi/tagbar'
 
 call plug#end()
