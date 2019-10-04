@@ -1,2 +1,5 @@
 /tmux/.tmux/resurrect
 /vim/.vim/plugged
+/vim/.vim/spell
+.netrwbook
+.netrwhist
