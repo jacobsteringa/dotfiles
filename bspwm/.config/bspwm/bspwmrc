@@ -3,10 +3,10 @@
 sxhkd &
 compton -b &
 xsetroot -cursor_name left_ptr &
-$HOME/.fehbg &
+([ -x "$HOME/.fehbg" ] && "$HOME/.fehbg") &
 redshift &
-mpd &
-(sleep 1 && polybar --reload main) &
+([ -x "$(command -v mpd)" ] && mpd) &
+([ -x "$(command -v polybar)" ] && sleep 1 && polybar --reload main) &
 
 bspc monitor -d web development communication music
 
