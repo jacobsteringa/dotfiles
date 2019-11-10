@@ -5,6 +5,7 @@ compton -b &
 xsetroot -cursor_name left_ptr &
 ([ -x "$HOME/.fehbg" ] && "$HOME/.fehbg") &
 redshift &
+([ -z "$(command -v unclutter)" ] && unclutter) &
 ([ -x "$(command -v mpd)" ] && mpd) &
 ([ -x "$(command -v polybar)" ] && sleep 1 && polybar --reload main) &
 
