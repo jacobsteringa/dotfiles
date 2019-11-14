@@ -18,6 +18,14 @@ super + Escape
 super + p
     mpc -q toggle
 
+# raise volume
+super + equal
+    amixer set Master 2%+
+
+# lower volume
+super + minus
+    amixer set Master 2%-
+
 # launch website
 super + b
     launch_website
