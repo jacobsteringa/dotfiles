@@ -10,6 +10,10 @@ super + Return
 super + @space
 	launch_app
 
+# launch commonly used programs
+super + o; f
+    firefox
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -20,11 +24,11 @@ super + p
 
 # raise volume
 super + equal
-    amixer set Master 2%+
+    pulsemixer --id 0 --change-volume +2
 
 # lower volume
 super + minus
-    amixer set Master 2%-
+    pulsemixer --id 0 --change-volume -2
 
 # launch website
 super + b
@@ -91,10 +95,10 @@ super + {grave,Tab}
 	bspc {node,desktop} -f last
 
 # focus the older or newer node in the focus history
-super + {o,i}
-	bspc wm -h off; \
-	bspc node {older,newer} -f; \
-	bspc wm -h on
+#super + {o,i}
+#	bspc wm -h off; \
+#	bspc node {older,newer} -f; \
+#	bspc wm -h on
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
