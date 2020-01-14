@@ -12,8 +12,6 @@ alias ..3='cd ../../../'
 alias ..4='cd ../../../../'
 alias ..5='cd ../../../../../'
 
-alias tmux='TERM=xterm-256color $(which tmux)'
-
 alias v='vim $(fzf)'
 
 # aliases for php cli
