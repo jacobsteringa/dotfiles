@@ -29,6 +29,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-eunuch'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ervandew/supertab'
@@ -116,6 +117,9 @@ set splitbelow
 
 set list
 set listchars=tab:\ \ ,trail:\.
+
+set wrap
+set sbr=\
 
 set diffopt+=vertical
 
@@ -225,9 +229,9 @@ command! -nargs=+ Ag execute 'silent grep! <args>' | botright copen | redraw!
 " Spellcheck {{{
 augroup ft_spell
     autocmd!
-    autocmd FileType text setlocal spell spelllang=nl
-    autocmd FileType mail setlocal spell spelllang=nl
-    autocmd FileType markdown setlocal spell spelllang=nl
+    autocmd FileType text setlocal spelllang=nl
+    autocmd FileType mail setlocal spelllang=nl
+    autocmd FileType markdown setlocal spelllang=nl
 augroup END
 " }}}
 
@@ -265,6 +269,7 @@ augroup ft_php
     autocmd!
     autocmd FileType php nnoremap <buffer> <leader>us :Start! ctags --languages=PHP -f .git/tags src/<cr>
     autocmd FileType php nnoremap <buffer> <leader>uv :Start! ctags --languages=PHP -f vendor/tags vendor/<cr>
+    autocmd FileType php nnoremap <buffer> <leader>h :!firefox "https://www.php.net/manual-lookup.php?pattern=<cword>"<cr>
 augroup END
 
 augroup ft_xml
