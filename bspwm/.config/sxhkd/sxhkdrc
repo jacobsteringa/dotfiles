@@ -11,12 +11,12 @@ super + @space
 	launch_app
 
 # launch commonly used programs
-super + o; f
-    firefox
+super + o; {f,w}
+    {firefox,neerslag}
 
 # make sxhkd reload its configuration files:
-super + Escape
-	pkill -USR1 -x sxhkd
+#super + Escape
+#	pkill -USR1 -x sxhkd
 
 # toggle mpd
 super + p
